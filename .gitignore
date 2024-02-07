@@ -1,0 +1,4 @@
+docker/logs/*
+docker/db/dbData
+/.idea
+/vendor
