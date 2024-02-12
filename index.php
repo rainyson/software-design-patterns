@@ -2,6 +2,18 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
+
+/**
+ * Strategy Design Pattern
+ */
+use App\Strategy\Traveler;
+use App\Strategy\Car;
+use App\Strategy\Bus;
+use App\Strategy\Airplane;
+
+$traveler = new Traveler();
+echo $traveler->goTrip(new Airplane);
+
 /**
  * Observer Design Pattern
  */
