@@ -6,13 +6,13 @@ require __DIR__ . '/vendor/autoload.php';
 /**
  * Strategy Design Pattern
  */
-use App\Strategy\Traveler;
-use App\Strategy\Car;
-use App\Strategy\Bus;
-use App\Strategy\Airplane;
-
-$traveler = new Traveler();
-echo $traveler->goTrip(new Airplane);
+//use App\Strategy\Traveler;
+//use App\Strategy\Car;
+//use App\Strategy\Bus;
+//use App\Strategy\Airplane;
+//
+//$traveler = new Traveler();
+//echo $traveler->goTrip(new Airplane);
 
 /**
  * Observer Design Pattern
@@ -54,4 +54,53 @@ echo $traveler->goTrip(new Airplane);
 //$tree = new TreeLights($tree);
 //echo $tree->leafing();
 
+/**
+ * Factory Method Design Pattern
+ */
+
+/**
+ * Transport Example
+ */
+use App\FactoryMethod\Transport\RoadLogistic;
+use App\FactoryMethod\Transport\SeaLogistic;
+use App\FactoryMethod\Transport\Ship;
+use App\FactoryMethod\Transport\Truck;
+
+$road = new RoadLogistic;
+$sea = new SeaLogistic;
+
+$truck1 = $road->planDelivery('Tehran');
+
+$truck2 = $road->planDelivery('Ardebil');
+
+$truck3 = $road->planDelivery('Isfahan');
+
+$truck4 = $road->planDelivery('Tabriz');
+
+$ship1 = $sea->planDelivery('America');
+
+$ship2 = $sea->planDelivery('China');
+
+/**
+ * Job Example
+ */
+use App\FactoryMethod\Job\TechnicalJob;
+use App\FactoryMethod\Job\ArtJob;
+use App\FactoryMethod\Job\ProductJob;
+
+$technical = new TechnicalJob();
+$art = new ArtJob();
+$product = new ProductJob();
+
+$colleague1 = $technical->createJobIns('backend');
+
+$colleague2 =$technical->createJobIns('frontend');
+
+$colleague3 =  $product->createJobIns('designer');
+
+$colleague4 = $art->createJobIns('designer');
+
+$colleague5 = $technical->createJobIns('frontend');
+
+$colleague6 = $product->createJobIns('designer');
 
