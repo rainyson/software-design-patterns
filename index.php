@@ -61,13 +61,13 @@ require __DIR__ . '/vendor/autoload.php';
 /**
  * Transport Example
  */
-use App\FactoryMethod\Transport\RoadLogistic;
-use App\FactoryMethod\Transport\SeaLogistic;
+use App\FactoryMethod\Transport\TransportRoadFactory;
+use App\FactoryMethod\Transport\TransportSeaFactory;
 use App\FactoryMethod\Transport\Ship;
 use App\FactoryMethod\Transport\Truck;
 
-$road = new RoadLogistic;
-$sea = new SeaLogistic;
+$road = new TransportRoadFactory;
+$sea = new TransportSeaFactory;
 
 $truck1 = $road->planDelivery('Tehran');
 
