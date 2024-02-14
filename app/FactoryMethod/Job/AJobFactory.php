@@ -2,7 +2,7 @@
 
 namespace App\FactoryMethod\Job;
 
-abstract class JobFactory
+abstract class AJobFactory
 {
     abstract public function createJobIns($type);
 }

@@ -2,9 +2,7 @@
 
 namespace App\FactoryMethod\Job;
 
-use App\FactoryMethod\Job\JobFactory;
-
-class ArtJob extends JobFactory
+class ArtJobFactory extends AJobFactory
 {
 
     public function createJobIns($type)
@@ -12,7 +10,7 @@ class ArtJob extends JobFactory
         $ins = null;
         switch ($type) {
             case 'designer':
-                $ins = new GraphicDesigner();
+                $ins = new GraphicDesignerFactory();
                 break;
             case 'artist':
                 break;

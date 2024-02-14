@@ -84,13 +84,13 @@ $ship2 = $sea->planDelivery('China');
 /**
  * Job Example
  */
-use App\FactoryMethod\Job\TechnicalJob;
-use App\FactoryMethod\Job\ArtJob;
-use App\FactoryMethod\Job\ProductJob;
+use App\FactoryMethod\Job\TechnicalJobFactory;
+use App\FactoryMethod\Job\ArtJobFactory;
+use App\FactoryMethod\Job\ProductJobFactory;
 
-$technical = new TechnicalJob();
-$art = new ArtJob();
-$product = new ProductJob();
+$technical = new TechnicalJobFactory();
+$art = new ArtJobFactory();
+$product = new ProductJobFactory();
 
 $colleague1 = $technical->createJobIns('backend');
 

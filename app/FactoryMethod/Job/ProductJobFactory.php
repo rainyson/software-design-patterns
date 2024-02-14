@@ -2,7 +2,7 @@
 
 namespace App\FactoryMethod\Job;
 
-class ProductJob extends JobFactory
+class ProductJobFactory extends AJobFactory
 {
 
     public function createJobIns($type)
