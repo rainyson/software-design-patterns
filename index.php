@@ -104,3 +104,45 @@ $colleague5 = $technical->createJobIns('frontend');
 
 $colleague6 = $product->createJobIns('designer');
 
+/**
+ * Abstract Factory Design Pattern
+ */
+
+/**
+ * Transport Example
+ */
+use App\AbstractFactory\Transport\TransportFactory;
+
+$transport = new TransportFactory;
+
+$truck1 = $transport->createRoadTransport();
+
+$truck2 = $transport->createRoadTransport();
+
+$truck3 = $transport->createRoadTransport();
+
+$truck4 = $transport->createRoadTransport();
+
+$ship1 = $transport->createSeaTransport();
+
+$ship2 = $transport->createSeaTransport();
+
+/**
+ * Job Example
+ */
+use App\AbstractFactory\Job\JobFactory;
+
+$jobFactory = new JobFactory();
+
+$colleague1 = $jobFactory->createTechnicalJobIns('bd');
+
+$colleague2 = $jobFactory->createTechnicalJobIns('fd');
+
+$colleague3 =  $jobFactory->createArtJobIns('gd');
+
+$colleague4 = $jobFactory->createProductJobIns('pd');
+
+$colleague5 = $jobFactory->createTechnicalJobIns('fd');
+
+$colleague6 = $jobFactory->createProductJobIns('pd');
+
