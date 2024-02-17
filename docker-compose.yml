@@ -13,23 +13,27 @@ services:
     networks:
       - softwareDesignPattern
 
-  #db:
-  # image: mysql:8.0.3
-  #  container_name: softwareDesignPattern-db
-  #  tty: true
-  #  restart: unless-stopped
-  #  ports:
-  #    - 3311:3306
-  #  environment:
-  #    SERVICE_TAGS: dev
-  #    SERVICE_NAME: mysql
-  #    TZ: "Asia/Tehran"
-  #  volumes:
-  #    - ./docker/db/designpattern.sql:/docker-entrypoint-initdb.d/1.sql
-  #    - ./docker/db/dbData:/var/lib/mysql
-  #  command: [ 'mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_general_ci' ]
-  #  networks:
-  #    - softwareDesignPattern
+  db:
+    image: mysql:8.0.3
+    container_name: softwareDesignPattern-db
+    tty: true
+    restart: unless-stopped
+    ports:
+      - "3311:3306"
+    environment:
+      MYSQL_USER: "test"
+      MYSQL_PASSWORD: "123456789"
+      MYSQL_DATABASE: "laraTest"
+      MYSQL_ROOT_PASSWORD: "987654321"
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+      TZ: "Asia/Tehran"
+    volumes:
+#      - ./docker/db/designpattern.sql:/docker-entrypoint-initdb.d/1.sql
+      - ./docker/db/dbData:/var/lib/mysql
+    command: [ 'mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_general_ci' ]
+    networks:
+      - softwareDesignPattern
 
   nginx:
     image: nginx:stable-alpine
