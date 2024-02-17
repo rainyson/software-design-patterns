@@ -146,3 +146,27 @@ $colleague5 = $jobFactory->createTechnicalJobIns('fd');
 
 $colleague6 = $jobFactory->createProductJobIns('pd');
 
+/**
+ * Singleton Design Pattern
+ */
+
+/**
+ * DB Example
+ */
+
+use App\Singleton\DB\Connection;
+use App\Singleton\Singleton;
+
+$ins = Connection::getInstance();
+var_dump($ins->getConnection());
+
+$ins1 = Connection::getInstance();
+var_dump($ins1->getConnection());
+
+$ins2 = Connection::getInstance();
+var_dump($ins2->getConnection());
+
+$ins3 = Connection::getInstance();
+var_dump($ins3->getConnection());
+
+//$instance = Singleton::getInstance();
