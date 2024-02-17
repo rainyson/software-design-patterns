@@ -10,7 +10,7 @@ class ArtJobFactory extends AJobFactory
         $ins = null;
         switch ($type) {
             case 'designer':
-                $ins = new GraphicDesignerFactory();
+                $ins = new GraphicDesigner();
                 break;
             case 'artist':
                 break;
