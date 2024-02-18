@@ -154,19 +154,45 @@ $colleague6 = $jobFactory->createProductJobIns('pd');
  * DB Example
  */
 
-use App\Singleton\DB\Connection;
-use App\Singleton\Singleton;
-
-$ins = Connection::getInstance();
-var_dump($ins->getConnection());
-
-$ins1 = Connection::getInstance();
-var_dump($ins1->getConnection());
-
-$ins2 = Connection::getInstance();
-var_dump($ins2->getConnection());
-
-$ins3 = Connection::getInstance();
-var_dump($ins3->getConnection());
+//use App\Singleton\DB\Connection;
+//use App\Singleton\Singleton;
+//
+//$ins = Connection::getInstance();
+//var_dump($ins->getConnection());
+//
+//$ins1 = Connection::getInstance();
+//var_dump($ins1->getConnection());
+//
+//$ins2 = Connection::getInstance();
+//var_dump($ins2->getConnection());
+//
+//$ins3 = Connection::getInstance();
+//var_dump($ins3->getConnection());
 
 //$instance = Singleton::getInstance();
+
+
+/**
+ * Command Design Pattern
+ */
+
+/**
+ * TV Example
+ */
+
+use App\Command\TV\RemoteControlSender;
+use App\Command\TV\TurnOnCommand;
+use App\Command\TV\TurnOffCommand;
+use App\Command\TV\VolumeUpCommand;
+use App\Command\TV\VolumeDownCommand;
+use App\Command\TV\TVReceiver;
+
+$remoteControl = new RemoteControlSender();
+$remoteControl->setCommands([
+    new TurnOnCommand(new TVReceiver),
+    new TurnOffCommand(new TVReceiver),
+    new VolumeUpCommand(new TVReceiver),
+    new VolumeDownCommand(new TVReceiver),
+]);
+
+$remoteControl->run();
