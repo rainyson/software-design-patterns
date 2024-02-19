@@ -180,19 +180,31 @@ $colleague6 = $jobFactory->createProductJobIns('pd');
  * TV Example
  */
 
-use App\Command\TV\RemoteControlSender;
-use App\Command\TV\TurnOnCommand;
-use App\Command\TV\TurnOffCommand;
-use App\Command\TV\VolumeUpCommand;
-use App\Command\TV\VolumeDownCommand;
-use App\Command\TV\TVReceiver;
+//use App\Command\TV\RemoteControlSender;
+//use App\Command\TV\TurnOnCommand;
+//use App\Command\TV\TurnOffCommand;
+//use App\Command\TV\VolumeUpCommand;
+//use App\Command\TV\VolumeDownCommand;
+//use App\Command\TV\TVReceiver;
+//
+//$remoteControl = new RemoteControlSender();
+//$remoteControl->setCommands([
+//    new TurnOnCommand(new TVReceiver),
+//    new TurnOffCommand(new TVReceiver),
+//    new VolumeUpCommand(new TVReceiver),
+//    new VolumeDownCommand(new TVReceiver),
+//]);
+//
+//$remoteControl->run();
 
-$remoteControl = new RemoteControlSender();
-$remoteControl->setCommands([
-    new TurnOnCommand(new TVReceiver),
-    new TurnOffCommand(new TVReceiver),
-    new VolumeUpCommand(new TVReceiver),
-    new VolumeDownCommand(new TVReceiver),
-]);
+/**
+ * Adapter Design Pattern
+ */
 
-$remoteControl->run();
+/**
+ * Printer Example
+ */
+use App\Adapter\Printer\LegacyPrinter;
+use App\Adapter\Printer\PrintAdapter;
+$printAdapter = new PrintAdapter(new LegacyPrinter);
+echo $printAdapter->printDocument();
