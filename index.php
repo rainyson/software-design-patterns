@@ -61,6 +61,7 @@ require __DIR__ . '/vendor/autoload.php';
 /**
  * Transport Example
  */
+
 use App\FactoryMethod\Transport\TransportRoadFactory;
 use App\FactoryMethod\Transport\TransportSeaFactory;
 use App\FactoryMethod\Transport\Ship;
@@ -84,6 +85,7 @@ $ship2 = $sea->planDelivery('China');
 /**
  * Job Example
  */
+
 use App\FactoryMethod\Job\TechnicalJobFactory;
 use App\FactoryMethod\Job\ArtJobFactory;
 use App\FactoryMethod\Job\ProductJobFactory;
@@ -94,9 +96,9 @@ $product = new ProductJobFactory();
 
 $colleague1 = $technical->createJobIns('backend');
 
-$colleague2 =$technical->createJobIns('frontend');
+$colleague2 = $technical->createJobIns('frontend');
 
-$colleague3 =  $product->createJobIns('designer');
+$colleague3 = $product->createJobIns('designer');
 
 $colleague4 = $art->createJobIns('designer');
 
@@ -111,6 +113,7 @@ $colleague6 = $product->createJobIns('designer');
 /**
  * Transport Example
  */
+
 use App\AbstractFactory\Transport\TransportFactory;
 
 $transport = new TransportFactory;
@@ -130,6 +133,7 @@ $ship2 = $transport->createSeaTransport();
 /**
  * Job Example
  */
+
 use App\AbstractFactory\Job\JobFactory;
 
 $jobFactory = new JobFactory();
@@ -138,7 +142,7 @@ $colleague1 = $jobFactory->createTechnicalJobIns('bd');
 
 $colleague2 = $jobFactory->createTechnicalJobIns('fd');
 
-$colleague3 =  $jobFactory->createArtJobIns('gd');
+$colleague3 = $jobFactory->createArtJobIns('gd');
 
 $colleague4 = $jobFactory->createProductJobIns('pd');
 
@@ -204,7 +208,27 @@ $colleague6 = $jobFactory->createProductJobIns('pd');
 /**
  * Printer Example
  */
-use App\Adapter\Printer\LegacyPrinter;
-use App\Adapter\Printer\PrintAdapter;
-$printAdapter = new PrintAdapter(new LegacyPrinter);
-echo $printAdapter->printDocument();
+//use App\Adapter\Printer\LegacyPrinter;
+//use App\Adapter\Printer\PrintAdapter;
+//$printAdapter = new PrintAdapter(new LegacyPrinter);
+//echo $printAdapter->printDocument();
+
+/**
+ * Facade Design Pattern
+ */
+
+/**
+ * Auth Facade Example
+ */
+
+use App\Facade\Auth\AuthFacade;
+
+$data = [
+    'name' => 'babak shokouhi pour',
+    'email' => 'babak@gmail.com',
+    'password' => '123456'
+];
+
+$authFacade = new AuthFacade();
+$authFacade->signUp($data);
+$authFacade->login($data['email'], $data['password']);
