@@ -221,14 +221,33 @@ $colleague6 = $jobFactory->createProductJobIns('pd');
  * Auth Facade Example
  */
 
-use App\Facade\Auth\AuthFacade;
+//use App\Facade\Auth\AuthFacade;
+//
+//$data = [
+//    'name' => 'babak shokouhi pour',
+//    'email' => 'babak@gmail.com',
+//    'password' => '123456'
+//];
+//
+//$authFacade = new AuthFacade();
+//$authFacade->signUp($data);
+//$authFacade->login($data['email'], $data['password']);
 
-$data = [
-    'name' => 'babak shokouhi pour',
-    'email' => 'babak@gmail.com',
-    'password' => '123456'
-];
+/**
+ * Proxy Design Pattern
+ */
 
-$authFacade = new AuthFacade();
-$authFacade->signUp($data);
-$authFacade->login($data['email'], $data['password']);
+/**
+ * File Example
+ */
+use App\Proxy\File\ReadFile;
+use App\Proxy\File\ReadFileProxy;
+
+$test1 = new ReadFileProxy('test1.txt');
+$test2 = new ReadFileProxy('test2.txt');
+
+echo $test1->getContents();
+echo '<br/>';
+echo '<br/>';
+echo '<br/>';
+echo $test2->getContents();
