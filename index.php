@@ -240,14 +240,31 @@ $colleague6 = $jobFactory->createProductJobIns('pd');
 /**
  * File Example
  */
-use App\Proxy\File\ReadFile;
-use App\Proxy\File\ReadFileProxy;
+//use App\Proxy\File\ReadFile;
+//use App\Proxy\File\ReadFileProxy;
+//
+//$test1 = new ReadFileProxy('test1.txt');
+//$test2 = new ReadFileProxy('test2.txt');
+//
+//echo $test1->getContents();
+//echo '<br/>';
+//echo '<br/>';
+//echo '<br/>';
+//echo $test2->getContents();
 
-$test1 = new ReadFileProxy('test1.txt');
-$test2 = new ReadFileProxy('test2.txt');
+/**
+ * Template Method Design Pattern
+ */
 
-echo $test1->getContents();
+/**
+ * Book Example
+ */
+use App\TemplateMethod\PaperBook;
+use App\TemplateMethod\EBook;
+$paperBook = new PaperBook();
+$ebook = new EBook();
+$paperBook->setTitle('Quran');
+$ebook->setTitle('Test');
+echo $paperBook->print();
 echo '<br/>';
-echo '<br/>';
-echo '<br/>';
-echo $test2->getContents();
+echo $ebook->print();
