@@ -288,17 +288,30 @@ $colleague6 = $jobFactory->createProductJobIns('pd');
  * Remote Control Example
  */
 
-use App\Bridge\RemoteControl\RemoteControl;
-use App\Bridge\RemoteControl\AdvancedRemote;
-use App\Bridge\RemoteControl\TV;
-use App\Bridge\RemoteControl\Radio;
+//use App\Bridge\RemoteControl\RemoteControl;
+//use App\Bridge\RemoteControl\AdvancedRemote;
+//use App\Bridge\RemoteControl\TV;
+//use App\Bridge\RemoteControl\Radio;
+//
+//$tv = new TV();
+//$radio = new Radio();
+//
+//$remoteControl = new RemoteControl($tv);
+//$remoteControl->volumeDown();
+//$remoteControl->channelUp();
+//
+//$advancedRemote = new AdvancedRemote($radio);
+//$advancedRemote->mute();
 
-$tv = new TV();
-$radio = new Radio();
+/**
+ * Null Object Design Pattern
+ */
 
-$remoteControl = new RemoteControl($tv);
-$remoteControl->volumeDown();
-$remoteControl->channelUp();
+/**
+ * Request Example
+ */
+use App\NullObject\Request\Client;
 
-$advancedRemote = new AdvancedRemote($radio);
-$advancedRemote->mute();
+$client = new Client();
+$request = $client->getRequest('d');
+echo $request->execute();
