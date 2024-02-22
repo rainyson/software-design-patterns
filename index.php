@@ -62,10 +62,16 @@ require __DIR__ . '/vendor/autoload.php';
  * Transport Example
  */
 
+use App\AbstractFactory\Job\JobFactory;
+use App\AbstractFactory\Transport\TransportFactory;
+use App\Bridge\Shape\BlueColor;
+use App\Bridge\Shape\CircleShape;
+use App\Bridge\Shape\RedColor;
+use App\FactoryMethod\Job\ArtJobFactory;
+use App\FactoryMethod\Job\ProductJobFactory;
+use App\FactoryMethod\Job\TechnicalJobFactory;
 use App\FactoryMethod\Transport\TransportRoadFactory;
 use App\FactoryMethod\Transport\TransportSeaFactory;
-use App\FactoryMethod\Transport\Ship;
-use App\FactoryMethod\Transport\Truck;
 
 $road = new TransportRoadFactory;
 $sea = new TransportSeaFactory;
@@ -85,10 +91,6 @@ $ship2 = $sea->planDelivery('China');
 /**
  * Job Example
  */
-
-use App\FactoryMethod\Job\TechnicalJobFactory;
-use App\FactoryMethod\Job\ArtJobFactory;
-use App\FactoryMethod\Job\ProductJobFactory;
 
 $technical = new TechnicalJobFactory();
 $art = new ArtJobFactory();
@@ -114,8 +116,6 @@ $colleague6 = $product->createJobIns('designer');
  * Transport Example
  */
 
-use App\AbstractFactory\Transport\TransportFactory;
-
 $transport = new TransportFactory;
 
 $truck1 = $transport->createRoadTransport();
@@ -133,8 +133,6 @@ $ship2 = $transport->createSeaTransport();
 /**
  * Job Example
  */
-
-use App\AbstractFactory\Job\JobFactory;
 
 $jobFactory = new JobFactory();
 
@@ -259,12 +257,48 @@ $colleague6 = $jobFactory->createProductJobIns('pd');
 /**
  * Book Example
  */
-use App\TemplateMethod\PaperBook;
-use App\TemplateMethod\EBook;
-$paperBook = new PaperBook();
-$ebook = new EBook();
-$paperBook->setTitle('Quran');
-$ebook->setTitle('Test');
-echo $paperBook->print();
-echo '<br/>';
-echo $ebook->print();
+//use App\TemplateMethod\PaperBook;
+//use App\TemplateMethod\EBook;
+//$paperBook = new PaperBook();
+//$ebook = new EBook();
+//$paperBook->setTitle('Quran');
+//$ebook->setTitle('Test');
+//echo $paperBook->print();
+//echo '<br/>';
+//echo $ebook->print();
+
+/**
+ * Bridge Design Pattern
+ */
+
+/**
+ * Shape & Color Example
+ */
+
+//$redColor = new RedColor();
+//$blueColor = new BlueColor();
+//
+//$circle = new CircleShape($redColor);
+//print_r($circle->draw());
+//
+//$circle->changeColor($blueColor);
+//print_r($circle->draw());
+
+/**
+ * Remote Control Example
+ */
+
+use App\Bridge\RemoteControl\RemoteControl;
+use App\Bridge\RemoteControl\AdvancedRemote;
+use App\Bridge\RemoteControl\TV;
+use App\Bridge\RemoteControl\Radio;
+
+$tv = new TV();
+$radio = new Radio();
+
+$remoteControl = new RemoteControl($tv);
+$remoteControl->volumeDown();
+$remoteControl->channelUp();
+
+$advancedRemote = new AdvancedRemote($radio);
+$advancedRemote->mute();
