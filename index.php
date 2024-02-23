@@ -310,8 +310,34 @@ $colleague6 = $jobFactory->createProductJobIns('pd');
 /**
  * Request Example
  */
-use App\NullObject\Request\Client;
+//use App\NullObject\Request\Client;
+//
+//$client = new Client();
+//$request = $client->getRequest('d');
+//echo $request->execute();
 
-$client = new Client();
-$request = $client->getRequest('d');
-echo $request->execute();
+/**
+ * Composite Design Pattern
+ */
+
+/**
+ * Product Example
+ */
+
+use App\Composite\Product\CompositeProducts;
+use App\Composite\Product\HammerProduct;
+use App\Composite\Product\HeadPhoneProduct;
+use App\Composite\Product\PhoneProduct;
+
+$hammer = new HammerProduct();
+$phone = new PhoneProduct();
+$headphone = new HeadPhoneProduct();
+
+$compositeProduct = new CompositeProducts();
+$compositeProduct->add($hammer);
+$compositeProduct->add($phone);
+$compositeProduct->add($headphone);
+$compositeProduct->remove($hammer);
+
+$results = $compositeProduct->generatePrice();
+echo $results;
