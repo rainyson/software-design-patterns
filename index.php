@@ -204,12 +204,30 @@ $colleague6 = $jobFactory->createProductJobIns('pd');
  */
 
 /**
- * Printer Example
+ * Printer Example - Roocket course
  */
 //use App\Adapter\Printer\LegacyPrinter;
 //use App\Adapter\Printer\PrintAdapter;
 //$printAdapter = new PrintAdapter(new LegacyPrinter);
 //echo $printAdapter->printDocument();
+
+/**
+ * Vehicle Example - Mastering In Design Patterns(udemy)
+ */
+
+//use App\Adapter\Vehicle\Maserati;
+//use App\Adapter\Vehicle\Bugatti;
+//use App\Adapter\Vehicle\Porsche;
+//
+//$maserati = new Maserati('Maserati');
+//$bugatti = new Bugatti('Bugatti');
+//$porsche = new Porsche('Porsche');
+//echo $maserati;
+//echo '<br />';
+//echo $bugatti;
+//echo '<br />';
+//echo $porsche;
+//echo '<br />';
 
 /**
  * Facade Design Pattern
@@ -324,20 +342,47 @@ $colleague6 = $jobFactory->createProductJobIns('pd');
  * Product Example
  */
 
-use App\Composite\Product\CompositeProducts;
-use App\Composite\Product\HammerProduct;
-use App\Composite\Product\HeadPhoneProduct;
-use App\Composite\Product\PhoneProduct;
+//use App\Composite\Product\CompositeProducts;
+//use App\Composite\Product\HammerProduct;
+//use App\Composite\Product\HeadPhoneProduct;
+//use App\Composite\Product\PhoneProduct;
+//
+//$hammer = new HammerProduct();
+//$phone = new PhoneProduct();
+//$headphone = new HeadPhoneProduct();
+//
+//$compositeProduct = new CompositeProducts();
+//$compositeProduct->add($hammer);
+//$compositeProduct->add($phone);
+//$compositeProduct->add($headphone);
+//$compositeProduct->remove($hammer);
+//
+//$results = $compositeProduct->generatePrice();
+//echo $results;
 
-$hammer = new HammerProduct();
-$phone = new PhoneProduct();
-$headphone = new HeadPhoneProduct();
+/**
+ * Memento Design Pattern
+ */
+/**
+ * Editor Example
+ */
+use App\Memento\Editor\Editor;
+use App\Memento\Editor\EditorHistory;
+$editor = new Editor();
+$editorHistory = new EditorHistory();
 
-$compositeProduct = new CompositeProducts();
-$compositeProduct->add($hammer);
-$compositeProduct->add($phone);
-$compositeProduct->add($headphone);
-$compositeProduct->remove($hammer);
+$editor->setContent('babak');
+$editorHistory->push($editor->createState());
 
-$results = $compositeProduct->generatePrice();
-echo $results;
+$editor->setContent('bashir');
+$editorHistory->push($editor->createState());
+
+$editor->setContent('bahareh');
+$editorHistory->push($editor->createState());
+
+$editor->setContent('hadi');
+$editor->restore($editorHistory->pop());
+$editor->restore($editorHistory->pop());
+$editor->restore($editorHistory->pop());
+
+echo $editor->getContent();
