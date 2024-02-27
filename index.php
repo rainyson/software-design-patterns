@@ -366,23 +366,47 @@ $colleague6 = $jobFactory->createProductJobIns('pd');
 /**
  * Editor Example
  */
-use App\Memento\Editor\Editor;
-use App\Memento\Editor\EditorHistory;
-$editor = new Editor();
-$editorHistory = new EditorHistory();
+//use App\Memento\Editor\Editor;
+//use App\Memento\Editor\EditorHistory;
+//$editor = new Editor();
+//$editorHistory = new EditorHistory();
+//
+//$editor->setContent('babak');
+//$editorHistory->push($editor->createState());
+//
+//$editor->setContent('bashir');
+//$editorHistory->push($editor->createState());
+//
+//$editor->setContent('bahareh');
+//$editorHistory->push($editor->createState());
+//
+//$editor->setContent('hadi');
+//$editor->restore($editorHistory->pop());
+//$editor->restore($editorHistory->pop());
+//$editor->restore($editorHistory->pop());
+//
+//echo $editor->getContent();
 
-$editor->setContent('babak');
-$editorHistory->push($editor->createState());
+//function test1()
+//{
+//    $a = 15;
+//    $b = 15;
+//    echo $a % $b;
+//    do {
+//        $r = $a % $b;
+//        $b = $r;
+//        $a = $b;
+//    } while ($r);
+//   echo $a;
+//}
 
-$editor->setContent('bashir');
-$editorHistory->push($editor->createState());
+//test1();
 
-$editor->setContent('bahareh');
-$editorHistory->push($editor->createState());
-
-$editor->setContent('hadi');
-$editor->restore($editorHistory->pop());
-$editor->restore($editorHistory->pop());
-$editor->restore($editorHistory->pop());
-
-echo $editor->getContent();
+$a = 45;
+$b = 30;
+do {
+    $r = $a % $b;
+    $a = $b;
+    $b = $r;
+} while ($r);
+echo $a;
