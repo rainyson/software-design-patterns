@@ -6,32 +6,16 @@ use App\State\Draw\ToolType;
 
 class Canvas
 {
-    private $currentTool;
+    private ITool $currentTool;
 
     public function mouseDown()
     {
-        if ($this->currentTool == ToolType::SELECTION){
-            echo 'SELECTION icon';
-        }
-        else if ($this->currentTool == ToolType::BRUSH) {
-            echo 'BRUSH icon';
-        }
-        else if ($this->currentTool == ToolType::ERASER) {
-            echo 'ERASER icon';
-        }
+        $this->currentTool->mouseDown();
     }
 
     public function mouseUp()
     {
-        if ($this->currentTool == ToolType::SELECTION){
-            echo 'Draw Dashed Rectangle';
-        }
-        else if ($this->currentTool == ToolType::BRUSH) {
-            echo 'Draw a line';
-        }
-        else if ($this->currentTool == ToolType::ERASER) {
-            echo 'Erase something';
-        }
+        $this->currentTool->mouseUp();
     }
 
     /**
@@ -45,7 +29,7 @@ class Canvas
     /**
      * @param mixed $currentTool
      */
-    public function setCurrentTool($currentTool)
+    public function setCurrentTool(ITool $currentTool)
     {
         $this->currentTool = $currentTool;
     }

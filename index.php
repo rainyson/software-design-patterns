@@ -62,51 +62,51 @@ require __DIR__ . '/vendor/autoload.php';
  * Transport Example
  */
 
-use App\AbstractFactory\Job\JobFactory;
-use App\AbstractFactory\Transport\TransportFactory;
-use App\Bridge\Shape\BlueColor;
-use App\Bridge\Shape\CircleShape;
-use App\Bridge\Shape\RedColor;
-use App\FactoryMethod\Job\ArtJobFactory;
-use App\FactoryMethod\Job\ProductJobFactory;
-use App\FactoryMethod\Job\TechnicalJobFactory;
-use App\FactoryMethod\Transport\TransportRoadFactory;
-use App\FactoryMethod\Transport\TransportSeaFactory;
-
-$road = new TransportRoadFactory;
-$sea = new TransportSeaFactory;
-
-$truck1 = $road->planDelivery('Tehran');
-
-$truck2 = $road->planDelivery('Ardebil');
-
-$truck3 = $road->planDelivery('Isfahan');
-
-$truck4 = $road->planDelivery('Tabriz');
-
-$ship1 = $sea->planDelivery('America');
-
-$ship2 = $sea->planDelivery('China');
+//use App\AbstractFactory\Job\JobFactory;
+//use App\AbstractFactory\Transport\TransportFactory;
+//use App\Bridge\Shape\BlueColor;
+//use App\Bridge\Shape\CircleShape;
+//use App\Bridge\Shape\RedColor;
+//use App\FactoryMethod\Job\ArtJobFactory;
+//use App\FactoryMethod\Job\ProductJobFactory;
+//use App\FactoryMethod\Job\TechnicalJobFactory;
+//use App\FactoryMethod\Transport\TransportRoadFactory;
+//use App\FactoryMethod\Transport\TransportSeaFactory;
+//
+//$road = new TransportRoadFactory;
+//$sea = new TransportSeaFactory;
+//
+//$truck1 = $road->planDelivery('Tehran');
+//
+//$truck2 = $road->planDelivery('Ardebil');
+//
+//$truck3 = $road->planDelivery('Isfahan');
+//
+//$truck4 = $road->planDelivery('Tabriz');
+//
+//$ship1 = $sea->planDelivery('America');
+//
+//$ship2 = $sea->planDelivery('China');
 
 /**
  * Job Example
  */
 
-$technical = new TechnicalJobFactory();
-$art = new ArtJobFactory();
-$product = new ProductJobFactory();
-
-$colleague1 = $technical->createJobIns('backend');
-
-$colleague2 = $technical->createJobIns('frontend');
-
-$colleague3 = $product->createJobIns('designer');
-
-$colleague4 = $art->createJobIns('designer');
-
-$colleague5 = $technical->createJobIns('frontend');
-
-$colleague6 = $product->createJobIns('designer');
+//$technical = new TechnicalJobFactory();
+//$art = new ArtJobFactory();
+//$product = new ProductJobFactory();
+//
+//$colleague1 = $technical->createJobIns('backend');
+//
+//$colleague2 = $technical->createJobIns('frontend');
+//
+//$colleague3 = $product->createJobIns('designer');
+//
+//$colleague4 = $art->createJobIns('designer');
+//
+//$colleague5 = $technical->createJobIns('frontend');
+//
+//$colleague6 = $product->createJobIns('designer');
 
 /**
  * Abstract Factory Design Pattern
@@ -116,37 +116,37 @@ $colleague6 = $product->createJobIns('designer');
  * Transport Example
  */
 
-$transport = new TransportFactory;
-
-$truck1 = $transport->createRoadTransport();
-
-$truck2 = $transport->createRoadTransport();
-
-$truck3 = $transport->createRoadTransport();
-
-$truck4 = $transport->createRoadTransport();
-
-$ship1 = $transport->createSeaTransport();
-
-$ship2 = $transport->createSeaTransport();
+//$transport = new TransportFactory;
+//
+//$truck1 = $transport->createRoadTransport();
+//
+//$truck2 = $transport->createRoadTransport();
+//
+//$truck3 = $transport->createRoadTransport();
+//
+//$truck4 = $transport->createRoadTransport();
+//
+//$ship1 = $transport->createSeaTransport();
+//
+//$ship2 = $transport->createSeaTransport();
 
 /**
  * Job Example
  */
 
-$jobFactory = new JobFactory();
-
-$colleague1 = $jobFactory->createTechnicalJobIns('bd');
-
-$colleague2 = $jobFactory->createTechnicalJobIns('fd');
-
-$colleague3 = $jobFactory->createArtJobIns('gd');
-
-$colleague4 = $jobFactory->createProductJobIns('pd');
-
-$colleague5 = $jobFactory->createTechnicalJobIns('fd');
-
-$colleague6 = $jobFactory->createProductJobIns('pd');
+//$jobFactory = new JobFactory();
+//
+//$colleague1 = $jobFactory->createTechnicalJobIns('bd');
+//
+//$colleague2 = $jobFactory->createTechnicalJobIns('fd');
+//
+//$colleague3 = $jobFactory->createArtJobIns('gd');
+//
+//$colleague4 = $jobFactory->createProductJobIns('pd');
+//
+//$colleague5 = $jobFactory->createTechnicalJobIns('fd');
+//
+//$colleague6 = $jobFactory->createProductJobIns('pd');
 
 /**
  * Singleton Design Pattern
@@ -387,26 +387,15 @@ $colleague6 = $jobFactory->createProductJobIns('pd');
 //
 //echo $editor->getContent();
 
-//function test1()
-//{
-//    $a = 15;
-//    $b = 15;
-//    echo $a % $b;
-//    do {
-//        $r = $a % $b;
-//        $b = $r;
-//        $a = $b;
-//    } while ($r);
-//   echo $a;
-//}
+/**
+ * State Design Pattern
+ * Draw Example
+ */
+use App\State\Draw\Canvas;
+use App\State\Draw\SelectionTool;
+use App\State\Draw\BrushTool;
 
-//test1();
-
-$a = 45;
-$b = 30;
-do {
-    $r = $a % $b;
-    $a = $b;
-    $b = $r;
-} while ($r);
-echo $a;
+$canvas = new Canvas();
+$canvas->setCurrentTool(new BrushTool());
+$canvas->getCurrentTool()->mouseDown();
+$canvas->getCurrentTool()->mouseUp();
