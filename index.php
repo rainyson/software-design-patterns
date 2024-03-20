@@ -5,6 +5,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 /**
  * Strategy Design Pattern
+ * Travel Example
  */
 //use App\Strategy\Traveler;
 //use App\Strategy\Car;
@@ -13,6 +14,21 @@ require __DIR__ . '/vendor/autoload.php';
 //
 //$traveler = new Traveler();
 //echo $traveler->goTrip(new Airplane);
+
+/**
+ * Strategy Pattern
+ * Image Example
+ */
+
+use App\Strategy\Image\ImageStorage;
+use App\Strategy\Image\JpegCompressor;
+use App\Strategy\Image\PngCompressor;
+use App\Strategy\Image\BWFilter;
+use App\Strategy\Image\HighContrastFilter;
+
+$imageStorage = new ImageStorage;
+$imageStorage->store('a', new JpegCompressor(), new BWFilter());
+$imageStorage->store('a', new PngCompressor(), new HighContrastFilter());
 
 /**
  * Observer Design Pattern
@@ -391,11 +407,35 @@ require __DIR__ . '/vendor/autoload.php';
  * State Design Pattern
  * Draw Example
  */
-use App\State\Draw\Canvas;
-use App\State\Draw\SelectionTool;
-use App\State\Draw\BrushTool;
+//use App\State\Draw\Canvas;
+//use App\State\Draw\SelectionTool;
+//use App\State\Draw\BrushTool;
+//
+//$canvas = new Canvas();
+//$canvas->setCurrentTool(new BrushTool());
+//$canvas->getCurrentTool()->mouseDown();
+//$canvas->getCurrentTool()->mouseUp();
 
-$canvas = new Canvas();
-$canvas->setCurrentTool(new BrushTool());
-$canvas->getCurrentTool()->mouseDown();
-$canvas->getCurrentTool()->mouseUp();
+/**
+ * Iterator Pattern
+ * Browser Example
+ */
+
+//use App\Iterator\Browser\BrowseHistory;
+//
+//$browseHistory = new BrowseHistory();
+//$browseHistory->push("google.com");
+//$browseHistory->push("bing.com");
+//$browseHistory->push("yahoo.com");
+
+// without iterator pattern
+//for ($i = 0; $i < count($browseHistory->getUrls()); $i++) {
+//    print_r($browseHistory->pop());
+//}
+
+//$iterator = $browseHistory->createIterator();
+//
+//while ($iterator->hasNext()) {
+//    print($iterator->current() . '<br/>');
+//    $iterator->next();
+//}
