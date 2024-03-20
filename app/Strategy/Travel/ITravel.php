@@ -1,4 +1,4 @@
-<?php namespace App\Strategy;
+<?php namespace App\Strategy\Travel;
 
 interface ITravel
 {

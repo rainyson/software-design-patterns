@@ -1,8 +1,6 @@
 <?php
 
-namespace App\Strategy;
-
-use App\Strategy\ITravel;
+namespace App\Strategy\Travel;
 
 class Bus implements ITravel
 {

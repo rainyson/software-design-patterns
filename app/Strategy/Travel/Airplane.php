@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Strategy;
+namespace App\Strategy\Travel;
 
 class Airplane implements ITravel
 {

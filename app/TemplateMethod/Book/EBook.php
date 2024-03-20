@@ -1,6 +1,6 @@
 <?php
 
-namespace App\TemplateMethod;
+namespace App\TemplateMethod\Book;
 
 class EBook extends Book
 {
