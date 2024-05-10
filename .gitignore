@@ -2,3 +2,5 @@ docker/logs/*
 docker/db/dbData
 /.idea
 /vendor
+/Exercises
+/Solutions
