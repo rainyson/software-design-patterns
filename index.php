@@ -5,7 +5,10 @@ require __DIR__ . '/vendor/autoload.php';
 
 /**
  * Strategy Design Pattern
- * Travel Example
+ */
+
+/**
+ * DirectionService Example
  */
 //use App\Strategy\Traveler;
 //use App\Strategy\Car;
@@ -17,18 +20,33 @@ require __DIR__ . '/vendor/autoload.php';
 
 /**
  * Strategy Pattern
+ */
+
+/**
  * Image Example
  */
 
-use App\Strategy\Image\ImageStorage;
-use App\Strategy\Image\JpegCompressor;
-use App\Strategy\Image\PngCompressor;
-use App\Strategy\Image\BWFilter;
-use App\Strategy\Image\HighContrastFilter;
+//use App\Strategy\Image\ImageStorage;
+//use App\Strategy\Image\JpegCompressor;
+//use App\Strategy\Image\PngCompressor;
+//use App\Strategy\Image\BWFilter;
+//use App\Strategy\Image\HighContrastFilter;
 
-$imageStorage = new ImageStorage;
-$imageStorage->store('a', new JpegCompressor(), new BWFilter());
-$imageStorage->store('a', new PngCompressor(), new HighContrastFilter());
+//$imageStorage = new ImageStorage;
+//$imageStorage->store('a', new JpegCompressor(), new BWFilter());
+//$imageStorage->store('a', new PngCompressor(), new HighContrastFilter());
+
+/**
+ * Encryption Example
+ */
+
+//use App\Strategy\Encryption\{
+//    ChatClient,
+//    AESEncryptionAlgorithm,
+//};
+//$message = "Hello World this is Babak";
+//$chatClient = new ChatClient(new AESEncryptionAlgorithm());
+//$chatClient->send($message);
 
 /**
  * Observer Design Pattern
@@ -291,6 +309,7 @@ $imageStorage->store('a', new PngCompressor(), new HighContrastFilter());
 /**
  * Book Example
  */
+
 //use App\TemplateMethod\PaperBook;
 //use App\TemplateMethod\EBook;
 //$paperBook = new PaperBook();
@@ -302,10 +321,21 @@ $imageStorage->store('a', new PngCompressor(), new HighContrastFilter());
 //echo $ebook->print();
 
 /**
- * Bridge Design Pattern
+ * Template Method Design Pattern
  */
 
 /**
+ * Banking Example
+ */
+
+use App\TemplateMethod\Banking\TransferMoneyTask;
+
+$auditTrail = new TransferMoneyTask();
+$auditTrail->execute();
+
+/**
+ * Bridge Design Pattern
+ *
  * Shape & Color Example
  */
 
@@ -379,6 +409,7 @@ $imageStorage->store('a', new PngCompressor(), new HighContrastFilter());
 /**
  * Memento Design Pattern
  */
+
 /**
  * Editor Example
  */
@@ -404,7 +435,44 @@ $imageStorage->store('a', new PngCompressor(), new HighContrastFilter());
 //echo $editor->getContent();
 
 /**
+ * Document Example
+ */
+
+//use App\Memento\Document\{
+//    Document,
+//    DocumentHistory,
+//};
+//
+//$document = new Document();
+//$documentHistory = new DocumentHistory();
+//
+//$document->setContent('this is the first content');
+//$document->setFontName('Arial');
+//$document->setFontSize(20);
+//$documentHistory->push($document->createState());
+//
+//$document->setContent('this is the second contnt');
+//$document->setFontName('Times New Roman');
+//$document->setFontSize(25);
+//$documentHistory->push($document->createState());
+//
+//$document->setContent('Hello World');
+//$document->setFontName('B Nazanin');
+//$document->setFontSize(18);
+//$documentHistory->push($document->createState());
+//
+//$document->restore($documentHistory->pop());
+//$document->restore($documentHistory->pop());
+//$document->restore($documentHistory->pop());
+//echo $document->getContent() .' <br />';
+//echo $document->getFontName() .' <br />';
+//echo $document->getFontSize() .' <br />';
+
+/**
  * State Design Pattern
+ */
+
+/**
  * Draw Example
  */
 //use App\State\Draw\Canvas;
@@ -417,7 +485,26 @@ $imageStorage->store('a', new PngCompressor(), new HighContrastFilter());
 //$canvas->getCurrentTool()->mouseUp();
 
 /**
+ * Direction Service Example
+ */
+
+//use App\State\DirectionService\{
+//    DirectionService,
+//    Driving,
+//    Bicycling,
+//    Transit,
+//    Walking,
+//};
+//$directionService = new DirectionService();
+//$directionService->setTravelMode(new Driving());
+//echo $directionService->getDirection();
+//echo $directionService->getETA();
+
+/**
  * Iterator Pattern
+ */
+
+/**
  * Browser Example
  */
 
@@ -438,4 +525,27 @@ $imageStorage->store('a', new PngCompressor(), new HighContrastFilter());
 //while ($iterator->hasNext()) {
 //    print($iterator->current() . '<br/>');
 //    $iterator->next();
+//}
+
+/**
+ * Product Example
+ */
+
+//use App\Iterator\Product\{
+//    ProductIterator,
+//    ProductCollection,
+//    Product,
+//};
+//
+//$productCollection = new ProductCollection();
+//$product1 = new Product(1, 'test1');
+//$product2 = new Product(2, 'test2');
+//$product3 = new Product(3, 'test3');
+//$productCollection->add($product1);
+//$productCollection->add($product2);
+//$productCollection->add($product3);
+//$productIterator = $productCollection->createIterator();
+//while($productIterator->hasNext()){
+//    echo $productIterator->current();
+//    $productIterator->next();
 //}
