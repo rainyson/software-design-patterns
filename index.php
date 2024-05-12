@@ -209,19 +209,19 @@ require __DIR__ . '/vendor/autoload.php';
 
 
 /**
- * Command Design Pattern
+ * ICommand Design Pattern
  */
 
 /**
  * TV Example
  */
 
-//use App\Command\TV\RemoteControlSender;
-//use App\Command\TV\TurnOnCommand;
-//use App\Command\TV\TurnOffCommand;
-//use App\Command\TV\VolumeUpCommand;
-//use App\Command\TV\VolumeDownCommand;
-//use App\Command\TV\TVReceiver;
+//use App\ICommand\TV\RemoteControlSender;
+//use App\ICommand\TV\TurnOnCommand;
+//use App\ICommand\TV\TurnOffCommand;
+//use App\ICommand\TV\VolumeUpCommand;
+//use App\ICommand\TV\VolumeDownCommand;
+//use App\ICommand\TV\TVReceiver;
 //
 //$remoteControl = new RemoteControlSender();
 //$remoteControl->setCommands([
@@ -232,6 +232,56 @@ require __DIR__ . '/vendor/autoload.php';
 //]);
 //
 //$remoteControl->run();
+
+/**
+ * UI Framework Example
+ */
+//use App\Command\UIFramework\{
+//    CustomerService,
+//    AddCustomerCommand,
+//    Button,
+//};
+//$customerService = new CustomerService();
+//$addCommand = new AddCustomerCommand($customerService);
+//$button = new Button($addCommand);
+//echo $button->click();
+
+/**
+ * Composite Command
+ */
+
+//use App\Command\PhotoApp\{
+//    CompositeCommand,
+//    ResizePhotoCommand,
+//    BlackAndWhiteCommand,
+//};
+//
+//$compositeCommand = new CompositeCommand();
+//$compositeCommand->add(new ResizePhotoCommand());
+//$compositeCommand->add(new BlackAndWhiteCommand());
+//$compositeCommand->execute();
+
+/**
+ * Undoable Commands
+ */
+
+use App\Command\HtmlDocument\{
+    HtmlDocument,
+    History,
+    BoldCommand,
+    UndoCommand
+};
+
+$htmlDoc = new HtmlDocument();
+$history = new History();
+$htmlDoc->setContent('Hello World');
+
+$boldCommand = new BoldCommand($htmlDoc, $history);
+$boldCommand->execute();
+echo $htmlDoc->getContent();
+$undoCommand = new UndoCommand($history);
+$undoCommand->execute();
+echo $htmlDoc->getContent();
 
 /**
  * Adapter Design Pattern
@@ -328,10 +378,10 @@ require __DIR__ . '/vendor/autoload.php';
  * Banking Example
  */
 
-use App\TemplateMethod\Banking\TransferMoneyTask;
-
-$auditTrail = new TransferMoneyTask();
-$auditTrail->execute();
+//use App\TemplateMethod\Banking\TransferMoneyTask;
+//
+//$auditTrail = new TransferMoneyTask();
+//$auditTrail->execute();
 
 /**
  * Bridge Design Pattern
