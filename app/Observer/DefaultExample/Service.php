@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Observer;
+namespace App\Observer\DefaultExample;
 
 class Service implements IObserver
 {
-    protected $name;
-    protected $priority;
+    protected string $name;
+    protected int $priority;
 
     public function __construct($name, $priority = 0)
     {
@@ -14,9 +14,10 @@ class Service implements IObserver
     }
 
     /**
-     * @return mixed
+     * @param IObservable $observable
+     * @return void
      */
-    public function update(IObservable $observable)
+    public function update(IObservable $observable): void
     {
         print_r("{$this->name} : {$observable->getEvent()} <br>");
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Observer;
+namespace App\Observer\DefaultExample;
 
 class Publisher implements IObservable
 {
