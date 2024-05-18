@@ -73,8 +73,46 @@ require __DIR__ . '/vendor/autoload.php';
 //$notify->setEvent('something else ...');
 
 /**
+ * Data Source Example
+ */
+//use App\Observer\DataSource\{
+//    Spreadsheet,
+//    Chart,
+//    DataSource,
+//};
+//$dataSource = new DataSource();
+//$spreadsheet1 = new Spreadsheet($dataSource);
+//$spreadsheet2 = new Spreadsheet($dataSource);
+//$chart = new Chart($dataSource);
+//$dataSource->addObserver($spreadsheet1);
+//$dataSource->addObserver($spreadsheet2);
+//$dataSource->addObserver($chart);
+//
+//$dataSource->setValue(1);
+
+/**
+ * Stock Example
+ */
+
+//use App\Observer\Stock\{
+//    StatusBar,
+//    StockPrice,
+//    StockList,
+//};
+//
+//$stockPrice = new StockPrice();
+//$stockList = new StockList($stockPrice);
+//$statusBar = new StatusBar($stockPrice);
+//
+//$stockPrice->addObserver($stockList);
+//$stockPrice->addObserver($statusBar);
+//$stockPrice->setPrice(1000);
+
+/**
  * Decorator Design Pattern
- *
+ */
+
+/**
  * Tree Example
  */
 //use App\Decorator\Tree\ChristmasTree;
@@ -265,23 +303,23 @@ require __DIR__ . '/vendor/autoload.php';
  * Undoable Commands
  */
 
-use App\Command\HtmlDocument\{
-    HtmlDocument,
-    History,
-    BoldCommand,
-    UndoCommand
-};
-
-$htmlDoc = new HtmlDocument();
-$history = new History();
-$htmlDoc->setContent('Hello World');
-
-$boldCommand = new BoldCommand($htmlDoc, $history);
-$boldCommand->execute();
-echo $htmlDoc->getContent();
-$undoCommand = new UndoCommand($history);
-$undoCommand->execute();
-echo $htmlDoc->getContent();
+//use App\Command\HtmlDocument\{
+//    HtmlDocument,
+//    History,
+//    BoldCommand,
+//    UndoCommand
+//};
+//
+//$htmlDoc = new HtmlDocument();
+//$history = new History();
+//$htmlDoc->setContent('Hello World');
+//
+//$boldCommand = new BoldCommand($htmlDoc, $history);
+//$boldCommand->execute();
+//echo $htmlDoc->getContent();
+//$undoCommand = new UndoCommand($history);
+//$undoCommand->execute();
+//echo $htmlDoc->getContent();
 
 /**
  * Adapter Design Pattern
@@ -599,3 +637,59 @@ echo $htmlDoc->getContent();
 //    echo $productIterator->current();
 //    $productIterator->next();
 //}
+
+/**
+ * Mediator Pattern
+ */
+
+/**
+ * DialogBox Example
+ */
+//use App\Mediator\DialogBox\{
+//    ArticleDialogBox
+//};
+//
+//$dialogBox = new ArticleDialogBox();
+//$dialogBox->simulateUserInteraction();
+
+/**
+ * Chain of responsibility
+ */
+
+/**
+ * Http Request
+ */
+
+//use App\ChainOfResponsibility\HttpRequest\{
+//    Authenticator,
+//    Logger,
+//    Compressor,
+//    WebServer,
+//    HttpRequest,
+//};
+//
+//$httpRequest = new HttpRequest("admin", "1234");
+//$compressor = new Compressor(null);
+//$logger = new Logger($compressor);
+//$authenticator = new Authenticator($logger);
+//$server = new WebServer($authenticator);
+//$server->handle($httpRequest);
+
+/**
+ * Data Reader
+ */
+//use App\ChainOfResponsibility\DataReader\{
+//    QBWReader,
+//    NumberReader,
+//    ExcelReader,
+//    FileDataReader,
+//    File,
+//};
+//
+//$file = new File('text.xls');
+//$qbwReader = new QBWReader();
+//$numberReader = new NumberReader();
+//$excelReader = new ExcelReader();
+//$qbwReader->setNext($numberReader);
+//$numberReader->setNext($excelReader);
+//$qbwReader->doRead($file);
