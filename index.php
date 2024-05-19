@@ -495,6 +495,50 @@ require __DIR__ . '/vendor/autoload.php';
 //echo $results;
 
 /**
+ * Shape Example
+ */
+//use App\Composite\Shape\{
+//    Group,
+//    Shape,
+//};
+//$group1 = new Group();
+//$group1->add(new Shape());
+//$group1->add(new Shape());
+//
+//$group2 = new Group();
+//$group2->add(new Shape());
+//$group2->add(new Shape());
+//
+//$group = new Group();
+//$group->add($group1);
+//$group->add($group2);
+//$group->render();
+//$group->move();
+
+/**
+ * Incident Example
+ */
+use App\Composite\Incident\{
+    Team,
+    Truck,
+    HumanResource,
+};
+$team1 = new Team();
+$team1->add(new Truck());
+$team1->add(new HumanResource());
+$team1->add(new HumanResource());
+
+$team2 = new Team();
+$team2->add(new Truck());
+$team2->add(new HumanResource());
+$team2->add(new HumanResource());
+
+$team = new Team();
+$team->add($team1);
+$team->add($team2);
+$team->deploy();
+
+/**
  * Memento Design Pattern
  */
 
@@ -693,3 +737,20 @@ require __DIR__ . '/vendor/autoload.php';
 //$qbwReader->setNext($numberReader);
 //$numberReader->setNext($excelReader);
 //$qbwReader->doRead($file);
+
+/**
+ * Visitor Pattern
+ */
+
+/**
+ * Html Document Example
+ */
+//use App\Visitor\{
+//    HtmlDocument,
+//    AnchorNode,
+//    HeadingNode,
+//};
+//$document = new HtmlDocument();
+//$document->add(new AnchorNode());
+//$document->add(new HeadingNode());
+//$document->highlight();
