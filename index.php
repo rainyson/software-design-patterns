@@ -127,6 +127,18 @@ require __DIR__ . '/vendor/autoload.php';
 //echo $tree->leafing();
 
 /**
+ * CloudStorage Example
+ */
+use App\Decorator\CloudStorage\{
+    CloudStream,
+    EncryptedCloudStream,
+    CompressedCloudStream,
+};
+$cloudStream = new EncryptedCloudStream(new CompressedCloudStream(new CloudStream()));
+$cloudStream->write('Hello World!');
+
+
+/**
  * Factory Method Design Pattern
  */
 
@@ -352,6 +364,34 @@ require __DIR__ . '/vendor/autoload.php';
 //echo '<br />';
 
 /**
+ * Image Filter Example
+ */
+
+//use App\Adapter\Image\{
+//    Image,
+//    ImageView,
+//    CaramelAdapter,
+//    VividFilter,
+//    pixelFilters\CaramelFilter,
+//};
+//
+//$imageView = new ImageView(new Image());
+//$imageView->apply(new VividFilter());
+//$imageView->apply(new CaramelAdapter(new CaramelFilter()));
+
+/**
+ * Email Example
+ */
+//use App\Adapter\Email\{
+//    EmailClient,
+//    GmailClientAdapter,
+//    Gmail\GmailClient
+//};
+//$emailClient = new EmailClient();
+//$emailClient->addProvider(new GmailClientAdapter(new GmailClient()));
+//$emailClient->downloadEmails();
+
+/**
  * Facade Design Pattern
  */
 
@@ -518,25 +558,25 @@ require __DIR__ . '/vendor/autoload.php';
 /**
  * Incident Example
  */
-use App\Composite\Incident\{
-    Team,
-    Truck,
-    HumanResource,
-};
-$team1 = new Team();
-$team1->add(new Truck());
-$team1->add(new HumanResource());
-$team1->add(new HumanResource());
-
-$team2 = new Team();
-$team2->add(new Truck());
-$team2->add(new HumanResource());
-$team2->add(new HumanResource());
-
-$team = new Team();
-$team->add($team1);
-$team->add($team2);
-$team->deploy();
+//use App\Composite\Incident\{
+//    Team,
+//    Truck,
+//    HumanResource,
+//};
+//$team1 = new Team();
+//$team1->add(new Truck());
+//$team1->add(new HumanResource());
+//$team1->add(new HumanResource());
+//
+//$team2 = new Team();
+//$team2->add(new Truck());
+//$team2->add(new HumanResource());
+//$team2->add(new HumanResource());
+//
+//$team = new Team();
+//$team->add($team1);
+//$team->add($team2);
+//$team->deploy();
 
 /**
  * Memento Design Pattern
