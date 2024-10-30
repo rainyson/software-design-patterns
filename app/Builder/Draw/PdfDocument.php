@@ -4,8 +4,8 @@ namespace App\Builder\Draw;
 
 class PdfDocument
 {
-    public function addPage(string $text)
+    public function addPage(string $text): void
     {
-        echo "Adding a Page to PDF";
+        echo "Adding a Page to PDF with text: {$text} <br />";
     }
 }

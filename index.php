@@ -1,5 +1,9 @@
 <?php
 
+use App\Strategy\Duck\FlyRocketPowered;
+use App\Strategy\Duck\MallardDuck;
+use App\Strategy\Duck\ModelDuck;
+
 require __DIR__ . '/vendor/autoload.php';
 
 
@@ -17,10 +21,6 @@ require __DIR__ . '/vendor/autoload.php';
 //
 //$traveler = new Traveler();
 //echo $traveler->goTrip(new Airplane);
-
-/**
- * Strategy Pattern
- */
 
 /**
  * Image Example
@@ -47,6 +47,19 @@ require __DIR__ . '/vendor/autoload.php';
 //$message = "Hello World this is Babak";
 //$chatClient = new ChatClient(new AESEncryptionAlgorithm());
 //$chatClient->send($message);
+
+/**
+ * Simulate Duck Example
+ */
+//$mallardDuck = new MallardDuck();
+//$mallardDuck->performQuack();
+//$mallardDuck->performFly();
+//
+//$modelDuck = new ModelDuck();
+//$modelDuck->performFly();
+//$modelDuck->performQuack();
+//$modelDuck->setFlyBehavior(new FlyRocketPowered());
+//$modelDuck->performFly();
 
 /**
  * Observer Design Pattern
@@ -129,13 +142,27 @@ require __DIR__ . '/vendor/autoload.php';
 /**
  * CloudStorage Example
  */
-use App\Decorator\CloudStorage\{
-    CloudStream,
-    EncryptedCloudStream,
-    CompressedCloudStream,
-};
-$cloudStream = new EncryptedCloudStream(new CompressedCloudStream(new CloudStream()));
-$cloudStream->write('Hello World!');
+//use App\Decorator\CloudStorage\{
+//    CloudStream,
+//    EncryptedCloudStream,
+//    CompressedCloudStream,
+//};
+//$cloudStream = new EncryptedCloudStream(new CompressedCloudStream(new CloudStream()));
+//$cloudStream->write('Hello World!');
+
+/**
+ * Beverage Example
+ */
+
+//use App\Decorator\Beverage\concreteBeverages\Espresso;
+//use App\Decorator\Beverage\concreteDecorators\Mocha;
+//use App\Decorator\Beverage\concreteDecorators\Soy;
+//
+//$beverage = new Espresso();
+//$beverage = new Mocha($beverage);
+//$beverage = new Soy($beverage);
+//echo $beverage->getDescription() . '</br>';
+//echo $beverage->cost() . '</br>';
 
 
 /**
@@ -193,6 +220,28 @@ $cloudStream->write('Hello World!');
 //$colleague6 = $product->createJobIns('designer');
 
 /**
+ * Web Framework Example
+ */
+
+//use App\FactoryMethod\WebFramework\{
+//    ProductsController
+//};
+//
+//$productController = new ProductsController();
+//$productController->getProducts();
+
+/**
+ * Pizza Example
+ */
+use App\Factory\Pizza\Stores\NYPizzaStore;
+use App\Factory\Pizza\Stores\ChicagoPizzaStore;
+$nyStore = new NYPizzaStore();
+$chicagoStore = new ChicagoPizzaStore();
+
+$nyStore->orderPizza('cheese');
+$chicagoStore->orderPizza('cheese');
+
+/**
  * Abstract Factory Design Pattern
  */
 
@@ -233,6 +282,28 @@ $cloudStream->write('Hello World!');
 //$colleague6 = $jobFactory->createProductJobIns('pd');
 
 /**
+ * Theme Example
+ */
+//use App\AbstractFactory\Theme\App\ContactForm;
+//use App\AbstractFactory\Theme\MaterialDesign\MaterialFactory;
+//use App\AbstractFactory\Theme\Ant\AntFactory;
+//
+//$contactForm = new ContactForm();
+//$contactForm->render(new MaterialFactory());
+
+/**
+ * Fit App Example
+ */
+//use App\AbstractFactory\FitApp\HomePage;
+//use App\AbstractFactory\FitApp\{
+//    WeightLossFactory,
+//    BuildMuscleFactory,
+//};
+//
+//$homePage = new HomePage();
+//$homePage->setPlan(new BuildMuscleFactory());
+
+/**
  * Singleton Design Pattern
  */
 
@@ -256,6 +327,33 @@ $cloudStream->write('Hello World!');
 //var_dump($ins3->getConnection());
 
 //$instance = Singleton::getInstance();
+
+/**
+ * Config Manager Example
+ */
+
+//use App\Singleton\Config\ConfigManager;
+//
+//$manager = ConfigManager::instance();
+//$manager->set('name', 'Babak');
+//
+//$other = ConfigManager::instance();
+//echo $other->get('name');
+
+
+/**
+ * Logger Example
+ */
+
+//use App\Singleton\Logger\Logger;
+//
+//$errorLogger = Logger::getInstance('errors.log');
+//$errorLogger->write('Hello World!');
+//
+//$workerLogger = Logger::getInstance('worker.log');
+//$workerLogger->write('Hello Babak!');
+//
+//echo $errorLogger === $workerLogger;
 
 
 /**
@@ -412,6 +510,18 @@ $cloudStream->write('Hello World!');
 //$authFacade->login($data['email'], $data['password']);
 
 /**
+ * Notification System
+ */
+
+//use App\Facade\Notification\{
+//    NotificationService,
+//};
+//
+//$notificationService = new NotificationService();
+//$notificationService->send('Hello World', 'targetApp');
+
+
+/**
  * Proxy Design Pattern
  */
 
@@ -429,6 +539,25 @@ $cloudStream->write('Hello World!');
 //echo '<br/>';
 //echo '<br/>';
 //echo $test2->getContents();
+
+/**
+ * EBook Example
+ */
+
+//use App\Proxy\EBook\{
+//    Library,
+//    EbookProxy,
+//    LoggingEbookProxy,
+//};
+//
+//$library = new Library();
+//$filenames = ['a', 'b', 'c'];
+//foreach ($filenames as $filename) {
+//    $ebook = new LoggingEbookProxy($filename);
+//    $library->add($ebook);
+//}
+//$library->openEbook('a');
+//$library->openEbook('b');
 
 /**
  * Template Method Design Pattern
@@ -607,15 +736,15 @@ $cloudStream->write('Hello World!');
 //echo $editor->getContent();
 
 /**
- * Document Example
+ * Element Example
  */
 
-//use App\Memento\Document\{
-//    Document,
+//use App\Memento\Element\{
+//    Element,
 //    DocumentHistory,
 //};
 //
-//$document = new Document();
+//$document = new Element();
 //$documentHistory = new DocumentHistory();
 //
 //$document->setContent('this is the first content');
@@ -783,7 +912,7 @@ $cloudStream->write('Hello World!');
  */
 
 /**
- * Html Document Example
+ * Html Element Example
  */
 //use App\Visitor\{
 //    HtmlDocument,
@@ -794,3 +923,41 @@ $cloudStream->write('Hello World!');
 //$document->add(new AnchorNode());
 //$document->add(new HeadingNode());
 //$document->highlight();
+
+/**
+ * Flyweight Design Pattern
+ */
+
+/**
+ * Map Example
+ */
+//use App\Flyweight\{
+//    PointService,
+//    PointIconFactory,
+//};
+//$pointService = new PointService(new PointIconFactory());
+//foreach ($pointService->getPoints() as $point) {
+//    $point->draw();
+//}
+
+/**
+ * Builder Design Pattern
+ */
+
+/**
+ * Draw Example
+ */
+//use App\Builder\Draw\{
+//    Presentation,
+//    Slide,
+//    PdfDocumentBuilder,
+//    MovieBuilder,
+//};
+//$presentation = new Presentation();
+//$presentation->addSlides(new Slide("Slide 1"));
+//$presentation->addSlides(new Slide("Slide 2"));
+//$presentation->addSlides(new Slide("Slide 3"));
+//
+//$builder = new MovieBuilder();
+//$presentation->export($builder);
+//$output = $builder->getOutput();
